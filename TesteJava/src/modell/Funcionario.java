@@ -5,6 +5,8 @@
  */
 package modell;
 
+import java.security.Timestamp;
+
 /**
  *
  * @author MAQLABiii
@@ -15,6 +17,28 @@ public class Funcionario extends Pessoa{
 
     public Funcionario() {
         super();
+    }
+
+    public Funcionario(String funcao, String observacao, int id, String nome, String cpf, String rg, Timestamp nasc) {
+        super(id, nome, cpf, rg, nasc);
+        this.funcao = funcao;
+        this.observacao = observacao;
+    }
+
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
  
 }

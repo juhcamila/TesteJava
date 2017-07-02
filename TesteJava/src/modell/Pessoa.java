@@ -1,4 +1,4 @@
-package model;
+package modell;
 
 import java.security.Timestamp;
 
