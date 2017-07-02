@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author juh_c
  */
-public class Funcionario extends javax.swing.JInternalFrame {
+public class JFFuncionario extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Funcionario
      */
-    public Funcionario() {
+    public JFFuncionario() {
         initComponents();
     }
 
