@@ -19,7 +19,7 @@ public class Funcionario extends Pessoa{
         super();
     }
 
-    public Funcionario(String funcao, String observacao, int id, String nome, String cpf, String rg, Timestamp nasc) {
+    public Funcionario(String funcao, String observacao, int id, String nome, String cpf, String rg, String nasc) {
         super(id, nome, cpf, rg, nasc);
         this.funcao = funcao;
         this.observacao = observacao;

@@ -5,25 +5,28 @@
  */
 package data;
 
+import java.sql.PreparedStatement;
 import modell.Funcionario;
 
-public class AlunoData{
+
     
-    public static void incluir(Aluno a) throws Exception{
-        PessoaData.incluir(a); // inclui primeiro na tabela de pessoas
-        a.setId(PessoaData.pesquisar(a.getNome())); // pega o id dele e coloca no objeto a
-        // preparando a insercao na tabela de alunos
-        PreparedStatement ps3 = Conexao.getConexao().prepareStatement(
-                "insert TBAluno values ( ?, ? )");
-        ps3.setInt(1, a.getId());
-        ps3.setString(2, a.getCurso());
-        ps3.executeUpdate(); // executa a insercao na tabela de alunos
-    }
+ 
 public class FuncionarioData {
     
-    public static incluir(Funcionario f) throws Exception{
+    public static boolean incluir(Funcionario f) throws Exception{
+       
+        PessoaData.incluir(f);//inclui primeiro na tabela de pessoas
+        f.setId(PessoaData.pesquisar(f.getNome()));
         
+        PreparedStatement ps3 = Conexao.getConexao().prepareStatement(
+        " insert Pessoa values (?,?,?)");
+        
+        ps3.setInt( 1, f.getId());
+        ps3.setString(2, f.getFuncao());
+        ps3.setString(3, f.getObservacao());
+        ps3.executeUpdate();
+        
+        return 0< ps3.executeUpdate();
     }
 }
     
-}

@@ -7,22 +7,30 @@ package data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
  * @author MAQLABiii
  */
 public class Conexao {
-  private Connection conexao;  
-  
-  public Conexao() throws Exception{
-      String url="jdbc:jtds:sqlserver://MAQLABIII-PC:1433/TesteJava";
-      Class.forName("net.sourceforge.jtds.jtbc.Driver");
-      conexao = DriverManager.getConnection(url, "teste", "123");
-      
-  }
-  
-  public Connection getConexao(){
-      return conexao;
-  }
+    private static Connection con;
+    
+  public static Connection getConexao() throws Exception {
+        
+        String url = "jdbc:jtds:sqlserver://MAQLABIII-PC:1433/TesteJava";
+        String user  = "ju";
+        String pass = "123";
+        String driver  = "net.sourceforge.jtds.jdbc.Driver";
+        
+        Class.forName(driver);
+        con = DriverManager.getConnection(url, user, pass);
+        return con;
+    }
+    
+    public void fechaConexao() throws SQLException{
+        con.close();
+    }
+    
+    
 }

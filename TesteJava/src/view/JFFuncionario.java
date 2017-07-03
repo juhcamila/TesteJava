@@ -5,7 +5,11 @@
  */
 package view;
 
+import data.FuncionarioData;
+import data.PessoaData;
 import javax.swing.JOptionPane;
+import modell.Funcionario;
+import modell.Pessoa;
 
 /**
  *
@@ -13,13 +17,16 @@ import javax.swing.JOptionPane;
  */
 public class JFFuncionario extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Funcionario
-     */
+    private FuncionarioData dao;
+    private PessoaData dao1;
+    private Funcionario obj;
+    private Pessoa obj2;
+    
     public JFFuncionario() {
         initComponents();
+        dao= new FuncionarioData();
+        setSize(600, 800);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -191,7 +198,21 @@ public class JFFuncionario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtdescriActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (validarCampos()) {
+                if (preencherObjetoo()) {
+                    if (dao.incluir(obj)) {
+                        if (dao1.incluir(obj2)) { 
+                            JOptionPane.showMessageDialog(this, "Salvo com sucesso");
+                        }
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Não foi possivel inserir o registo");
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, "Erro: " + erro.getMessage());
+        }
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void funcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcaoActionPerformed
@@ -262,7 +283,17 @@ public class JFFuncionario extends javax.swing.JInternalFrame {
         }
         return true;
     }
+public boolean preencherObjetoo(){
+    obj = new Funcionario();
+    obj2= new Pessoa();
+    obj.setFuncao(funcao.getText());
+    obj2.setNome(jtNome.getText());
+    obj.setObservacao(jtdescri.getText());
+    obj2.setRg(cpf.getText());
+    obj2.setNasc(nasc.getText());
 
+    return true;
+}
 
 
 }

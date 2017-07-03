@@ -11,12 +11,12 @@ public class Pessoa {
    private String nome;
    private String cpf;
    private String rg;
-   private Timestamp nasc;
+   private String nasc;
 
     public Pessoa() {
     }
 
-    public Pessoa(int id, String nome, String cpf, String rg, Timestamp nasc) {
+    public Pessoa(int id, String nome, String cpf, String rg, String nasc) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -56,11 +56,11 @@ public class Pessoa {
         this.rg = rg;
     }
 
-    public Timestamp getNasc() {
+    public String getNasc() {
         return nasc;
     }
 
-    public void setNasc(Timestamp nasc) {
+    public void setNasc(String nasc) {
         this.nasc = nasc;
     }
    
