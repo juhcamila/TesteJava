@@ -19,7 +19,7 @@ public class FuncionarioData {
         f.setId(PessoaData.pesquisar(f.getNome()));
         
         PreparedStatement ps3 = Conexao.getConexao().prepareStatement(
-        " insert Pessoa values (?,?,?)");
+        " insert Funcionario values (?,?,?)");
         
         ps3.setInt( 1, f.getId());
         ps3.setString(2, f.getFuncao());
