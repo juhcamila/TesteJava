@@ -19,7 +19,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
-        setSize(1000,1000);
+        setSize(1000,600);
     }
 
     /**

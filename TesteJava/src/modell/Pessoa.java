@@ -12,16 +12,18 @@ public class Pessoa {
    private String cpf;
    private String rg;
    private String nasc;
+   private String endereco;
 
     public Pessoa() {
     }
 
-    public Pessoa(int id, String nome, String cpf, String rg, String nasc) {
+    public Pessoa(int id, String nome, String cpf, String rg, String nasc, String endereco) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
         this.nasc = nasc;
+        this.endereco = endereco;
     }
 
     public int getId() {
@@ -62,6 +64,14 @@ public class Pessoa {
 
     public void setNasc(String nasc) {
         this.nasc = nasc;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
    
    

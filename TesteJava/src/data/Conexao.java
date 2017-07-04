@@ -14,13 +14,13 @@ import java.sql.SQLException;
  * @author MAQLABiii
  */
 public class Conexao {
-    private static Connection con;
+    public static Connection con;
     
   public static Connection getConexao() throws Exception {
         
-        String url = "jdbc:jtds:sqlserver://MAQLABIII-PC:1433/TesteJava";
-        String user  = "ju";
-        String pass = "123";
+        String url = "jdbc:jtds:sqlserver://localhost:1433/TesteJava";
+        String user  = "sa";
+        String pass = "dba";
         String driver  = "net.sourceforge.jtds.jdbc.Driver";
         
         Class.forName(driver);

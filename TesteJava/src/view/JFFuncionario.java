@@ -199,20 +199,24 @@ public class JFFuncionario extends javax.swing.JInternalFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         try {
-            if (validarCampos()) {
-                if (preencherObjetoo()) {
-                    if (dao.incluir(obj)) {
-                        if (dao1.incluir(obj2)) { 
-                            JOptionPane.showMessageDialog(this, "Salvo com sucesso");
-                        }
-                    }
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Não foi possivel inserir o registo");
-            }
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, "Erro: " + erro.getMessage());
+            obj = new Funcionario();
+            
+            obj.setNome(jtNome.getText());
+    obj.setCpf(cpf.getText());
+    obj.setRg(rg.getText());
+    obj.setEndereco(jtendereco.getText());
+    obj.setNasc(nasc.getText());
+    obj.setFuncao(funcao.getText());
+    obj.setObservacao(jtdescri.getText());
+            
+            FuncionarioData.incluir(obj);
+            
+            JOptionPane.showMessageDialog(this, "Cadastrado com sucesso!");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+        
+       
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void funcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcaoActionPerformed
@@ -286,11 +290,13 @@ public class JFFuncionario extends javax.swing.JInternalFrame {
 public boolean preencherObjetoo(){
     obj = new Funcionario();
     obj2= new Pessoa();
-    obj.setFuncao(funcao.getText());
     obj2.setNome(jtNome.getText());
-    obj.setObservacao(jtdescri.getText());
-    obj2.setRg(cpf.getText());
+    obj2.setCpf(cpf.getText());
+    obj2.setRg(rg.getText());
+    obj2.setEndereco(jtendereco.getText());
     obj2.setNasc(nasc.getText());
+    obj.setFuncao(funcao.getText());
+    obj.setObservacao(jtdescri.getText());
 
     return true;
 }
