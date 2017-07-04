@@ -12,12 +12,13 @@ import modell.Pessoa;
 public class PessoaData {
    public static boolean incluir(Pessoa p) throws Exception{
       PreparedStatement ps0 = Conexao.getConexao().prepareStatement(
-      "insert Pessoa values(?,?,?,?)");
+      "insert Pessoa values(?,?,?,?,?)");
       
       ps0.setString(1, p.getNome());
       ps0.setString(2, p.getRg());
       ps0.setString(3, p.getCpf());
       ps0.setString(4, p.getNasc());
+      ps0.setString(5, p.getEndereco());
       ps0.executeUpdate();
       return 0< ps0.executeUpdate();
        
