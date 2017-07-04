@@ -198,12 +198,20 @@ public class JFFuncionario extends javax.swing.JInternalFrame {
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
        try {
             if (validarCampos()) {
-                if (preencherObjetoo()) {
-                    if (dao.incluir(obj)) {
+                
+                   obj = new Funcionario();
+            
+                    obj.setNome(jtNome.getText());
+                    obj.setCpf(cpf.getText());
+                    obj.setRg(rg.getText());
+                    obj.setEndereco(jtendereco.getText());
+                    obj.setNasc(nasc.getText());
+                    obj.setFuncao(funcao.getText());
+                    obj.setObservacao(jtdescri.getText());
+                    
                         JOptionPane.showMessageDialog(this, "Salvo com sucesso");
-                      
-                    }
-                }
+                
+              
             } else {
                 JOptionPane.showMessageDialog(this, "Não foi possivel inserir o registo");
             }
@@ -283,18 +291,5 @@ public class JFFuncionario extends javax.swing.JInternalFrame {
         }
         return true;
     }
-public boolean preencherObjetoo(){
-    obj = new Funcionario();
-            
-    obj.setNome(jtNome.getText());
-    obj.setCpf(cpf.getText());
-    obj.setRg(rg.getText());
-    obj.setEndereco(jtendereco.getText());
-    obj.setNasc(nasc.getText());
-    obj.setFuncao(funcao.getText());
-    obj.setObservacao(jtdescri.getText());
-    return true;
-}
-
 
 }

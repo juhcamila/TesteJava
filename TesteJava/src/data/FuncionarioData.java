@@ -13,7 +13,7 @@ import modell.Funcionario;
  
 public class FuncionarioData {
     
-    public static boolean incluir(Funcionario f) throws Exception{
+    public static void incluir(Funcionario f) throws Exception{
        
         PessoaData.incluir(f);//inclui primeiro na tabela de pessoas
         f.setId(PessoaData.pesquisar(f.getNome()));
@@ -26,7 +26,7 @@ public class FuncionarioData {
         ps3.setString(3, f.getObservacao());
         ps3.executeUpdate();
         
-        return 0< ps3.executeUpdate();
+       
     }
 }
     
